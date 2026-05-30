@@ -11,7 +11,12 @@ import "./page.css"
 export default function HomePage() {
 
 
+const [display, setDisplay] = useState(false);
 
+function desplegar() {
+  if (display) return setDisplay(false)
+    else if (!display) return setDisplay(true)
+}
 
 
 const [pagina, setPagina] = useState("start")
@@ -19,14 +24,17 @@ const [pagina, setPagina] = useState("start")
 function startF(){
   setPagina("start")
   window.scrollTo(0, 0)
+  desplegar()
 }
 function nosotrosF() {
   setPagina("nosotros")
   window.scrollTo(0, 0)
+  desplegar()
 }
 function productosF() {
   setPagina("productos")
   window.scrollTo(0, 0)
+  desplegar()
 }
 
 
@@ -38,7 +46,9 @@ function productosF() {
       <body>
 
         <NavBar 
-          start={startF} 
+        desplegar={desplegar}
+        display={display}
+        start={startF} 
         nosotros={nosotrosF} 
         productos={productosF} 
         />

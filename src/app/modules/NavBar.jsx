@@ -4,6 +4,8 @@ import "./Start.css"
 import { use, useEffect, useState } from "react"
 
 import { Bebas_Neue, Inter } from 'next/font/google'
+import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdArrowDropup } from "react-icons/io";
 
 const bebasNeue = Bebas_Neue({ 
   weight: ["400"],
@@ -16,7 +18,7 @@ const inter = Inter({
   weight: ['400', '700', '900']
 })
 
-export function NavBar({start, nosotros, productos}) {
+export function NavBar({start, nosotros, productos, display, desplegar}) {
 
 const [scrolled, setScroll] = useState(false)
 
@@ -31,13 +33,39 @@ useEffect(() => {
 
 }, [])
 
+const [mobile, setMobile] = useState(false)
+
+useEffect (() => {
+  if (window.matchMedia("(max-width: 768px)").matches) {
+   setMobile(true)
+  }
+},[])
+
+function navClass() {
+  if (display) return "displayed";
+  if (mobile) return "mobile";
+  else if (scrolled) return "scrolled";
+  else ""
+}
+
+function changeImg() {
+  if (mobile) return "/assets/start/logo_fucsia.png";
+  else if (scrolled) return "/assets/start/logo_fucsia.png";
+  else return "/assets/start/logo_white.png";
+
+}
+
+
+
+
+
 
     return (
         <header className={`${inter.variable} ${bebasNeue.variable}`}>
-        <nav className={scrolled ? "scrolled": ""}>
+        <nav className={navClass()}>
           <ul>
             <li>
-              <img src={scrolled ? "/assets/start/logo_fucsia.png": "/assets/start/logo_white.png"}/>
+              <img src={changeImg()}/>
             </li>
             <li onClick={start}>Inicio</li>
             <li onClick={nosotros}>Productos</li>
@@ -51,6 +79,13 @@ useEffect(() => {
             </li>
           </ul>
         </nav>
+
+
+      <nav className="navUnico">
+        {display ? (<IoMdArrowDropup size={50} onClick={desplegar} style={{zIndex:"99"}}/>): (<IoMdArrowDropdown size={50} color="white" onClick={desplegar} style={{zIndex:"99"}}/>)}
+      
+      </nav>
       </header>
+
     )
 }

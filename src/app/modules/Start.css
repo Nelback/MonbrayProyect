@@ -78,6 +78,38 @@ nav {
     transition: all 0.3s ease-in-out;
 }
 
+@media (max-width: 768px) {
+    nav ul{
+        flex-direction: column;
+    }
+
+    nav {
+    top: auto;
+    background-color: white;
+    border-radius: 16px;
+    color: black;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.493);
+    transform: translateY(-100vh);
+    transition: all 0.3s ease-out;
+    }
+
+    nav.displayed {
+        transform: translateY(0);
+    }
+
+    .navUnico{
+        transform: translate(0);
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+
+    a{
+        color: black;
+    }
+}
+
+
 nav.scrolled {
     background-color: white;
     border-radius: 16px;
