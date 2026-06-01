@@ -16,6 +16,12 @@
     font-size: 3rem;
 }
 
+@media (max-width: 768px) {
+    .sct1 {
+        text-align: center;
+    }
+
+}
 
 /* cinta divisora */
 
@@ -33,5 +39,13 @@
     width: 50%;
 }
 
-/* segundo sección de productos  */
+@media (max-width: 768px) {
+    .cintaa{
+        height: 25vh;
+    }
+    .cintaa p {
+        width: 70%;
+    }
+}
 
+/* segundo sección de productos  */

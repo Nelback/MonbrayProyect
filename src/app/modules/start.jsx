@@ -126,12 +126,18 @@ export function Start({style}) {
           </div>
         </section>
 
-        <section className="sect5">
-          <p><b>POR QUÉ ELEGIRNOS</b></p>
-          <span>CALIDAD QUE SE <b>SIENTE</b></span>
+        {/* quinta sección de color fuccia */}
 
-          <div className="contTarjetas">
-            
+        <section className="sect5">
+
+                      <div className="encabezado5">
+            <p><b>POR QUÉ ELEGIRNOS</b></p>
+            <span>CALIDAD QUE SE <b>SIENTE</b></span>
+          </div>
+          
+
+
+
             <div className="tarjeta">
               <img src="/assets/start/home/icon_1.png" alt="" />
               <p><b>Duración de 21+ días</b></p>
@@ -168,7 +174,7 @@ export function Start({style}) {
               <p><b>Secado Rápido</b></p>
               <p>Secado en segundos con lámpara LED/UV para mayor comodidad.</p>
             </div>
-          </div>
+
           <div className="centerCard">
             <img src="/assets/start/home/icono_7.png" width={60}/>
             <div className="content">
